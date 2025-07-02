@@ -78,14 +78,6 @@ class ProcesadorDatosPapa:
         self.df_largo.to_csv(ruta_csv, index=False)
         print(f"Archivo CSV guardado en: {ruta_csv}")
 
-    def obtener_datos(self):
-        """
-        Retorna el DataFrame en formato largo.
-
-        Returns:
-            pandas.DataFrame: Datos en formato largo
-        """
-        return self.df_largo
 
     def procesar_y_exportar(self, ruta_csv):
         """
