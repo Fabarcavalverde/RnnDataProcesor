@@ -42,7 +42,7 @@ def main():
         )
 
         # Ejecutar pipeline completo
-        ruta_final, reporte = pipeline.ejecutar_pipeline_completo()
+        ruta_final = pipeline.ejecutar_pipeline_completo()
 
         # Mostrar resultados
         print(f"\n{'=' * 60}")

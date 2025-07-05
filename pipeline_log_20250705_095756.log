@@ -1,0 +1,22 @@
+2025-07-05 09:57:56,688 - src.pipeline_procesamiento - INFO - Pipeline inicializado correctamente
+2025-07-05 09:57:56,688 - src.pipeline_procesamiento - INFO - === INICIANDO PIPELINE COMPLETO ===
+2025-07-05 09:57:56,689 - src.pipeline_procesamiento - INFO - Validación de archivos de entrada completada
+2025-07-05 09:57:56,689 - src.pipeline_procesamiento - INFO - Iniciando procesamiento de datos de papa
+2025-07-05 09:57:56,714 - src.procesador_datos_papa - INFO - Procesando 21 hojas del archivo Excel
+2025-07-05 09:57:57,196 - src.procesador_datos_papa - INFO - Procesamiento completado: 1260 registros
+2025-07-05 09:57:57,202 - src.pipeline_procesamiento - INFO - Procesamiento de datos de papa completado
+2025-07-05 09:57:57,202 - src.pipeline_procesamiento - INFO - Iniciando procesamiento de datos atmosféricos
+2025-07-05 09:57:57,203 - src.procesador_datos_atmosfericos - INFO - Procesando 5 archivos CSV
+2025-07-05 09:57:57,250 - src.procesador_datos_atmosfericos - INFO - Se procesaron exitosamente 5 de 5 archivos
+2025-07-05 09:57:57,250 - src.pipeline_procesamiento - INFO - Procesamiento de datos atmosféricos completado
+2025-07-05 09:57:57,250 - src.pipeline_procesamiento - INFO - Iniciando fusión de datos
+2025-07-05 09:57:57,296 - src.merge_datos_papa_atmosfericos - INFO - Datos cargados - Clima: 1260 filas, Papa: 1260 filas
+2025-07-05 09:57:57,303 - src.merge_datos_papa_atmosfericos - INFO - Fusión completada:
+2025-07-05 09:57:57,304 - src.merge_datos_papa_atmosfericos - INFO -   - Filas originales: 1260
+2025-07-05 09:57:57,304 - src.merge_datos_papa_atmosfericos - INFO -   - Filas fusionadas: 1260
+2025-07-05 09:57:57,304 - src.merge_datos_papa_atmosfericos - INFO -   - Filas con datos climáticos: 1260
+2025-07-05 09:57:57,304 - src.pipeline_procesamiento - INFO - Fusión completada
+2025-07-05 09:57:57,321 - src.pipeline_procesamiento - INFO - === PIPELINE COMPLETADO EXITOSAMENTE ===
+2025-07-05 09:57:57,321 - src.pipeline_procesamiento - INFO - Tiempo total: 0:00:00.633618
+2025-07-05 09:57:57,321 - src.pipeline_procesamiento - INFO - Archivo final: data/processed\rnn_df.csv
+2025-07-05 09:57:57,321 - src.pipeline_procesamiento - ERROR - Error en pipeline completo: name 'reporte' is not defined

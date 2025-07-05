@@ -168,34 +168,6 @@ class PipelineProcesamiento:
             self.logger.error(f"Error fusionando datos: {e}")
             raise
 
-    def generar_reporte_calidad(self, df_final: pd.DataFrame) -> Dict[str, Any]:
-        """
-        Genera un reporte de calidad de los datos procesados.
-
-        Args:
-            df_final (pd.DataFrame): DataFrame final procesado
-
-        Returns:
-            Dict[str, Any]: Reporte de calidad
-        """
-        try:
-            reporte = {
-                "total_filas": len(df_final),
-                "total_columnas": len(df_final.columns),
-                "cantones_unicos": df_final['canton'].nunique() if 'canton' in df_final.columns else 0,
-                "años_unicos": df_final['anio'].nunique() if 'anio' in df_final.columns else 0,
-                "meses_unicos": df_final['mes'].nunique() if 'mes' in df_final.columns else 0,
-                "valores_faltantes": df_final.isnull().sum().sum(),
-                "porcentaje_completitud": (1 - (
-                            df_final.isnull().sum().sum() / (len(df_final) * len(df_final.columns)))) * 100
-            }
-
-            self.logger.info(f"Reporte de calidad generado: {reporte}")
-            return reporte
-
-        except Exception as e:
-            self.logger.error(f"Error generando reporte de calidad: {e}")
-            return {}
 
     def ejecutar_pipeline_completo(self) -> tuple[str, Dict[str, Any]]:
         """
@@ -227,8 +199,6 @@ class PipelineProcesamiento:
             ruta_final = os.path.join(self.carpeta_salida, "rnn_df.csv")
             df_final.to_csv(ruta_final, index=False, encoding='utf-8')
 
-            # Generar reporte de calidad
-            reporte = self.generar_reporte_calidad(df_final)
 
             # Calcular tiempo total
             tiempo_total = datetime.now() - inicio
@@ -237,7 +207,7 @@ class PipelineProcesamiento:
             self.logger.info(f"Tiempo total: {tiempo_total}")
             self.logger.info(f"Archivo final: {ruta_final}")
 
-            return ruta_final, reporte
+            return ruta_final
 
         except Exception as e:
             self.logger.error(f"Error en pipeline completo: {e}")
