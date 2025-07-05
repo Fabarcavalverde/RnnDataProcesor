@@ -52,12 +52,15 @@ class PipelineProcesamiento:
         Args:
             log_level (str): Nivel de logging
         """
+        # Crear carpeta logs si no existe
+        os.makedirs("logs", exist_ok=True)
+
         logging.basicConfig(
             level=getattr(logging, log_level.upper()),
             format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
             handlers=[
                 logging.StreamHandler(),
-                logging.FileHandler(f'pipeline_log_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log')
+                logging.FileHandler(f'logs/pipeline_log_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log')
             ]
         )
 
